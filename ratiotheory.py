@@ -8,11 +8,10 @@ from transforge.expr import Operator
 Quantity = TypeOperator()
 Amount = TypeOperator(supertype=Quantity, param=1)
 Magnitude = TypeOperator(supertype=Quantity, param=1)
-#ProportionalMagnitude = TypeOperator(supertype=Magnitude)
 ArchimedeanMagnitude = TypeAlias(lambda x: Magnitude(x) [x <= Amount])
 Number = TypeOperator()
 Proportion = TypeOperator(params=2, supertype=Magnitude)
-ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x, y <= Magnitude],params=2)
+ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x, y <= Magnitude])
 
 #------------------------
 
