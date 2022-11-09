@@ -6,12 +6,15 @@ from transforge.expr import Operator
 
 #Quantity domains
 Quantity = TypeOperator()
-Amount = TypeOperator(supertype=Quantity, param=1)
-Magnitude = TypeOperator(supertype=Quantity, param=1)
-ArchimedeanMagnitude = TypeAlias(lambda x: Magnitude(x) [x <= Amount])
+Amount = TypeOperator(params=1) #supertype=Quantity
+Magnitude = TypeAlias(lambda x: x[x << (ArchimedeanMagnitude(_), ProportionalMagnitude(_,_))])
+
+Archimedean = TypeOperator(params=1) #upertype=Quantity
+ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount])
+Proportion = TypeOperator(params=2) #, supertype=Magnitude
+ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude, y <= Magnitude])
+
 Number = TypeOperator()
-Proportion = TypeOperator(params=2, supertype=Magnitude)
-ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x, y <= Magnitude])
 
 #------------------------
 
@@ -24,12 +27,14 @@ Bool = TypeOperator()
 #-------------------
 Region = TypeAlias(Amount(Position))
 Period = TypeAlias(Amount(Moment))
-ContentAmount = TypeAlias(supertype=Amount)
-AmountofObject = TypeAlias(Amount(Object), supertype=ContentAmount)
-AmountofEvent = TypeAlias(Amount(Event), supertype=ContentAmount)
+ContentAmount = TypeAlias(lambda x: x[x << (AmountofObject,AmountofEvent)])
+AmountofObject = TypeAlias(Amount(Object))
+AmountofEvent = TypeAlias(Amount(Event))
 
 
 Size = TypeAlias(ArchimedeanMagnitude(Region))
+Duration = TypeAlias(ArchimedeanMagnitude(Period))
+Value = TypeAlias(ArchimedeanMagnitude(ContentAmount))
 #-----------------------------------------------
 #operations
 #---------
@@ -47,10 +52,10 @@ enumerate = Operator(
 
 ratio = Operator(
     "building ratios",
-    type=x ** y ** ProportionalMagnitude(x,y) [x <= Magnitude, y <= Magnitude]
+    type=x ** y ** ProportionalMagnitude(x,y)[x <= Magnitude, y <= Magnitude]
 )
 
-quotient = Operator (
+quotient = Operator(
     "building quotient",
     type=Number ** Number ** Number
 )
@@ -58,7 +63,7 @@ quotient = Operator (
 ## x:Region y:AmountofObject
 ## enumerate(ratio(measurement(x),measurement(y)))
 
-partOf =Operator (
-    type= x ** x ** Bool [x<Amount]
+partOf = Operator(
+    type= x ** x ** Bool[x <= Amount]
 )
 
