@@ -12,9 +12,9 @@ Amount = TypeOperator(params=1) #supertype=Quantity
 Magnitude = TypeAlias(lambda x: x[x << (ArchimedeanMagnitude(_), ProportionalMagnitude(_,_))])
 
 Archimedean = TypeOperator(params=1) #upertype=Magnitude
-ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount])
+ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount(_)])
 Proportion = TypeOperator(params=2) #, supertype=Magnitude
-ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude, y <= Magnitude])
+ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude(_), y <= Magnitude(_)])
 
 #------------------------
 #Quantity Domains
@@ -47,7 +47,7 @@ Mass = TypeAlias(Archimedean(AmountofSubstance))
 
 measure = Operator(
     "measures some amount",
-    type=lambda x: x ** Archimedean(x) [x <= Amount]
+    type=lambda x: x ** Archimedean(x) [x <= Amount(_)]
 )
 ratio = Operator(
     "building ratios of archimedean magnitudes",
@@ -58,25 +58,30 @@ multiply = Operator(
     type=lambda z, w: Proportion(z,w) ** w ** z
 )
 partOf = Operator(
-    type= x ** x ** Bool[x <= Amount]
+    type= lambda x: x ** x ** Bool[x <= Amount(_)]
 )
 
 # Language ###################################################################
 
-cct = Language(
+ratiotheory = Language(
     scope=locals(),
     namespace=("ratios", "https://github.com/quangis/ratios#"),
     canon={
     Top,
-    Quantity,
-    Amount,
-    Magnitude,
-    Archimedean,
-    Proportion,
-    Position,
-    Moment,
-    Object,
-    Event,
-    Bool,
-    Substance
+        Position,
+ Moment,
+ Object,
+ Event,
+ Bool,
+ Substance,
+ Amount(Position),
+Amount(Moment),
+Amount(Object),
+Amount(Event),
+Amount(Substance),
+Archimedean(Region),
+Archimedean(Period),
+Archimedean(AmountofObject),
+Archimedean(AmountofEvent),
+Archimedean(AmountofSubstance)
     })
