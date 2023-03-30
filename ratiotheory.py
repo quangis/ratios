@@ -80,7 +80,7 @@ ratiotheory = Language(
     namespace=("ratios", "https://github.com/quangis/ratios#"),
     canon={
     Top,
-        Position,
+    Position,
  Moment,
  Object,
  Event,
@@ -96,9 +96,9 @@ Archimedean(Period),
 Archimedean(AmountofObject),
 Archimedean(AmountofEvent),
 Archimedean(AmountofSubstance),
-ObjectDensity,
-EventDensity,
-MassDensity,
-ObjectFrequency,
-EventFrequency
+# ObjectDensity,
+# EventDensity,
+# MassDensity,
+# ObjectFrequency,
+# EventFrequency
     })
