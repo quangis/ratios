@@ -38,7 +38,9 @@ AmountofSubstance = TypeAlias(Amount(Substance))
 #Types of magnitudes
 Size = TypeAlias(Archimedean(Region))
 Duration = TypeAlias(Archimedean(Period))
-Value = TypeAlias(Archimedean(ContentAmount))
+ObjectCount = TypeAlias(Archimedean(AmountofObject))
+EventCount = TypeAlias(Archimedean(AmountofEvent))
+Mass = TypeAlias(Archimedean(AmountofSubstance))
 #-----------------------------------------------
 #operations
 #---------
