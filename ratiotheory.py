@@ -11,7 +11,7 @@ Quantity = TypeOperator()
 Amount = TypeOperator(params=1) #supertype=Quantity
 Magnitude = TypeAlias(lambda x: x[x << (ArchimedeanMagnitude(_), ProportionalMagnitude(_,_))])
 
-Archimedean = TypeOperator(params=1) #upertype=Quantity
+Archimedean = TypeOperator(params=1) #upertype=Magnitude
 ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount])
 Proportion = TypeOperator(params=2) #, supertype=Magnitude
 ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude, y <= Magnitude])
