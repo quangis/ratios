@@ -41,10 +41,22 @@ Duration = TypeAlias(Archimedean(Period))
 ObjectCount = TypeAlias(Archimedean(AmountofObject))
 EventCount = TypeAlias(Archimedean(AmountofEvent))
 Mass = TypeAlias(Archimedean(AmountofSubstance))
+
+#Types of Proportions
+ObjectDensity = TypeAlias(Proportion(ObjectCount,Size))
+EventDensity = TypeAlias(Proportion(EventCount,Size))
+MassDensity = TypeAlias(Proportion(Mass,Size))
+ObjectFrequency = TypeAlias(Proportion(ObjectCount,Duration))
+EventFrequency = TypeAlias(Proportion(EventCount,Duration))
+
+
 #-----------------------------------------------
 #operations
 #---------
-
+reciprocal =Operator(
+    "reciprocal of a ratio",
+    type=lambda z, w: Proportion(z,w) ** Proportion(w,z)
+)
 measure = Operator(
     "measures some amount",
     type=lambda x: x ** Archimedean(x) [x <= Amount(_)]
@@ -83,5 +95,10 @@ Archimedean(Region),
 Archimedean(Period),
 Archimedean(AmountofObject),
 Archimedean(AmountofEvent),
-Archimedean(AmountofSubstance)
+Archimedean(AmountofSubstance),
+ObjectDensity,
+EventDensity,
+MassDensity,
+ObjectFrequency,
+EventFrequency
     })

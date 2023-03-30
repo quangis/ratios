@@ -19,5 +19,5 @@ for e in expressions:
 #Get the subtype structure (ontology) in rdf
 g = TransformationGraph(ratiotheory)
 g.add_taxonomy()
-g.add_operators()
+#g.add_operators()
 print(g.serialize())
