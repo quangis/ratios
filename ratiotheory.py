@@ -36,24 +36,24 @@ AmountofSubstance = TypeAlias(Amount(Substance))
 
 #-------------------
 #Types of magnitudes
-Size = TypeAlias(ArchimedeanMagnitude(Region))
-Duration = TypeAlias(ArchimedeanMagnitude(Period))
-Value = TypeAlias(ArchimedeanMagnitude(ContentAmount))
+Size = TypeAlias(Archimedean(Region))
+Duration = TypeAlias(Archimedean(Period))
+Value = TypeAlias(Archimedean(ContentAmount))
 #-----------------------------------------------
 #operations
 #---------
 
 measure = Operator(
     "measures some amount",
-    type=lambda x: x ** ArchimedeanMagnitude(x) [x <= Amount]
+    type=lambda x: x ** Archimedean(x) [x <= Amount]
 )
 ratio = Operator(
     "building ratios of archimedean magnitudes",
-    type=lambda x, y: x ** y ** ProportionalMagnitude(x,y)[x << ArchimedeanMagnitude(_), y << ArchimedeanMagnitude(_)]
+    type=lambda x, y: x ** y ** Proportion(x,y)[x << Archimedean(_), y << Archimedean(_)]
 )
 multiply = Operator(
     "building archimedean magnitudes with ratios",
-    type=lambda z, w: ProportionalMagnitude(z,w) ** w ** z
+    type=lambda z, w: Proportion(z,w) ** w ** z
 )
 partOf = Operator(
     type= x ** x ** Bool[x <= Amount]
