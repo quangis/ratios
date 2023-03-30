@@ -2,7 +2,9 @@ from transforge.type import Type, Constraint, \
     TypeInstance, TypeAlias, TypeOperator, \
     with_parameters, _, Top
 from transforge.lang import Language
-from transforge.expr import Operator
+from transforge.expr import Operator, Source
+
+
 #------------------------------
 #Quantity types
 Quantity = TypeOperator()
@@ -53,11 +55,26 @@ multiply = Operator(
     "building archimedean magnitudes with ratios",
     type=lambda z, w: ProportionalMagnitude(z,w) ** w ** z
 )
-
-## x:Region y:AmountofObject
-## enumerate(ratio(measurement(x),measurement(y)))
-
 partOf = Operator(
     type= x ** x ** Bool[x <= Amount]
 )
 
+# Language ###################################################################
+
+cct = Language(
+    scope=locals(),
+    namespace=("ratios", "https://github.com/quangis/ratios#"),
+    canon={
+    Top,
+    Quantity,
+    Amount,
+    Magnitude,
+    Archimedean,
+    Proportion,
+    Position,
+    Moment,
+    Object,
+    Event,
+    Bool,
+    Substance
+    })
