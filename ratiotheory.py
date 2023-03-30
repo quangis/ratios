@@ -3,8 +3,8 @@ from transforge.type import Type, Constraint, \
     with_parameters, _, Top
 from transforge.lang import Language
 from transforge.expr import Operator
-
-#Quantity domains
+#------------------------------
+#Quantity types
 Quantity = TypeOperator()
 Amount = TypeOperator(params=1) #supertype=Quantity
 Magnitude = TypeAlias(lambda x: x[x << (ArchimedeanMagnitude(_), ProportionalMagnitude(_,_))])
@@ -14,24 +14,26 @@ ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount])
 Proportion = TypeOperator(params=2) #, supertype=Magnitude
 ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude, y <= Magnitude])
 
-Number = TypeOperator()
-
 #------------------------
-
+#Quantity Domains
 Position = TypeOperator()
 Moment = TypeOperator()
 Object = TypeOperator()
 Event = TypeOperator()
 Bool = TypeOperator()
+Substance = TypeOperator()
 
 #-------------------
+#Types of amounts
 Region = TypeAlias(Amount(Position))
 Period = TypeAlias(Amount(Moment))
-ContentAmount = TypeAlias(lambda x: x[x << (AmountofObject,AmountofEvent)])
+ContentAmount = TypeAlias(lambda x: x[x << (AmountofObject,AmountofEvent,AmountofSubstance)])
 AmountofObject = TypeAlias(Amount(Object))
 AmountofEvent = TypeAlias(Amount(Event))
+AmountofSubstance = TypeAlias(Amount(Substance))
 
-
+#-------------------
+#Types of magnitudes
 Size = TypeAlias(ArchimedeanMagnitude(Region))
 Duration = TypeAlias(ArchimedeanMagnitude(Period))
 Value = TypeAlias(ArchimedeanMagnitude(ContentAmount))
@@ -39,25 +41,17 @@ Value = TypeAlias(ArchimedeanMagnitude(ContentAmount))
 #operations
 #---------
 
-
-
-measurement = Operator(
+measure = Operator(
     "measures some amount",
     type=lambda x: x ** ArchimedeanMagnitude(x) [x <= Amount]
 )
-enumerate = Operator(
-    "gives back the number of a magnitude",
-    type=Magnitude ** Number
-)
-
 ratio = Operator(
-    "building ratios",
-    type=x ** y ** ProportionalMagnitude(x,y)[x <= Magnitude, y <= Magnitude]
+    "building ratios of archimedean magnitudes",
+    type=lambda x, y: x ** y ** ProportionalMagnitude(x,y)[x << ArchimedeanMagnitude(_), y << ArchimedeanMagnitude(_)]
 )
-
-quotient = Operator(
-    "building quotient",
-    type=Number ** Number ** Number
+multiply = Operator(
+    "building archimedean magnitudes with ratios",
+    type=lambda z, w: ProportionalMagnitude(z,w) ** w ** z
 )
 
 ## x:Region y:AmountofObject
