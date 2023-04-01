@@ -1,5 +1,4 @@
 import transforge as tf
-from transforge import TransformationGraph
 from ratiotheory import ratiotheory
 
 def test(complex_string):
@@ -17,7 +16,7 @@ for e in expressions:
     print(test(e).tree())
 
 #Get the subtype structure (ontology) in rdf
-g = TransformationGraph(ratiotheory)
+g = tf.TransformationGraph(ratiotheory)
 g.add_taxonomy()
-#g.add_operators()
+g.add_operators()
 print(g.serialize())
