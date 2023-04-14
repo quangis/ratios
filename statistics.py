@@ -10,7 +10,9 @@ expressions =[
 multiply(ratio(measure(1),measure(2)), measure(2))
 """,
     """
-    1: ObjectInfo(Ratio)
+    1: ObjectInfo(Nom);
+    
+    
     """
 
     ]
@@ -23,4 +25,4 @@ g = tf.TransformationGraph(ratiotheory)
 g.add_taxonomy()
 g.add_operators()
 
-print(g.serialize())
+#print(g.serialize())
