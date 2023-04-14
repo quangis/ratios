@@ -8,15 +8,19 @@ expressions =[
 1: AmountofObject;
 2: Region;
 multiply(ratio(measure(1),measure(2)), measure(2))
-"""
+""",
+    """
+    1: ObjectInfo(Ratio)
+    """
+
     ]
 
 
 for e in expressions:
     print(test(e).tree())
-
 #Get the subtype structure (ontology) in rdf
 g = tf.TransformationGraph(ratiotheory)
 g.add_taxonomy()
 g.add_operators()
+
 print(g.serialize())
