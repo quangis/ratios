@@ -96,9 +96,9 @@ Quantity = TypeOperator()
 Amount = TypeOperator(params=1) #supertype=Quantity
 Magnitude = TypeAlias(lambda x: x[x << (ArchimedeanMagnitude(_), ProportionalMagnitude(_,_))])
 
-Archimedean = TypeOperator(params=1,supertype=Ratio) #upertype=Magnitude
+Archimedean = TypeOperator(params=1) #upertype=Magnitude
 ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount(_)])
-Proportion = TypeOperator(params=2,supertype=Ratio) #, supertype=Magnitude
+Proportion = TypeOperator(params=2) #, supertype=Magnitude
 ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude(_), y <= Magnitude(_)])
 
 #------------------------
@@ -112,7 +112,7 @@ Substance = TypeOperator()
 
 #-------------------
 #Types of amounts
-Region = TypeAlias(Amount(Position),supertype=Reg)
+Region = TypeAlias(Amount(Position))
 Period = TypeAlias(Amount(Moment))
 ContentAmount = TypeAlias(lambda x: x[x << (AmountofObject,AmountofEvent,AmountofSubstance)])
 AmountofObject = TypeAlias(Amount(Object))
