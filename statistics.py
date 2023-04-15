@@ -6,13 +6,11 @@ def test(complex_string):
 expressions =[
     """
     1: R2(MassDensity, Region);
-    (apply1 amount2rel) 1
+    2: R1(Region);    
+        subset
+        (revert 1) 
+        (merge 2)        
     """,
-    """
-     1: R2(Position, MassDensity);     
-    groupby(rel2amount, 1)
-    """
-    ,
     """
     1: R2(Region, EventCount);
     2: R1(Region); 

@@ -121,6 +121,11 @@ union = Operator(
     "unify amounts (join)",
     type=lambda x: x ** x ** x [x <= Amount(_)]
 )
+merge = Operator(
+    "merge regions",
+    type=R1(Region) ** R1(Position),
+    body=lambda x: relunion(pi2(apply(amount2rel, x)))
+)
 
 # consIntersect = Operator(
 #     "constructs a quantified relation of intersections of regions (excluding empty intersections)",
@@ -143,8 +148,8 @@ invert = Operator(
 )
 revert = Operator(
     "revert a coverage into a field",
-    type=lambda x: R2(x, Region) ** R2(Position, x)#,
-    #body=lambda x:
+    type=lambda x: R2(x, Region) ** R2(Position, x),
+    body=lambda x: pi23(prod3(apply1(compose(apply(id_),amount2rel)),x))
 )
 
 consproportion = Operator(
