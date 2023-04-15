@@ -162,6 +162,11 @@ consarchimed = Operator(
     type=lambda x, y: R2(x,Proportion(y,Archimedean(x))) ** R2(x,y) [x << Amount(_), y << Archimedean(_)],
     body=lambda x: apply2(multiply,x,(apply(measure,pi1(x))))
 )
+consarchimed2 = Operator(
+    "construct archimedean magnitudes from an Proportion - Amount relation",
+    type=lambda x, y: R2(Proportion(y,Archimedean(x)),x) ** R2(Proportion(y,Archimedean(x)),y) [x << Amount(_), y << Archimedean(_)],
+    body=lambda x: apply2(multiply,(apply(id,pi1(x))), (apply1(measure,x)))
+)
 
 arealinterpol = Operator(
     "areal interpolation",
