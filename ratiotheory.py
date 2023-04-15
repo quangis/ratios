@@ -110,8 +110,60 @@ multiply = Operator(
     type=lambda z, w: Proportion(z,w) ** w ** z
 )
 partOf = Operator(
+    "amounts can be part of each other",
     type= lambda x: x ** x ** Bool[x <= Amount(_)]
 )
+intersect = Operator(
+    "intersect amounts (meet)",
+    type=lambda x: x ** x ** x [x <= Amount(_)]
+)
+union = Operator(
+    "unify amounts (join)",
+    type=lambda x: x ** x ** x [x <= Amount(_)]
+)
+
+# consIntersect = Operator(
+#     "constructs a quantified relation of intersections of regions (excluding empty intersections)",
+#     type=lambda x,y: R2(x, Region) ** R2(y, Region) ** R3(x, Region, y),
+#     body=lambda x, y: select (compose(notj,empty))(prod3(prod(intersect, x, y)))
+# )
+
+amount2rel = Operator(
+    'convert amounts into relations',
+    type=lambda x: Amount(x) ** R1(x)
+)
+rel2amount = Operator(
+    'convert amounts into relations',
+    type=lambda x: R1(x) ** Amount(x)
+)
+invert = Operator(
+    "invert a field, generating a coverage",
+    type=lambda x: R2(Position, x) ** R2(x, Region),
+    body=lambda x: groupby(rel2amount, x)
+)
+revert = Operator(
+    "revert a coverage into a field",
+    type=lambda x: R2(x, Region) ** R2(Position, x)#,
+    #body=lambda x:
+)
+
+consproportion = Operator(
+    'construct proportions from an Amount - Archimedean relation',
+    type=lambda x, y: R2(x,y) ** R2(x,Proportion(y,Archimedean(x))) [x << Amount(_), y << Archimedean(_)],
+    body=lambda x: apply2(ratio,(apply(measure,pi1(x))),x)
+)
+consarchimed = Operator(
+    "construct archimedean magnitudes from an Amount - Proportion relation",
+    type=lambda x, y: R2(x,Proportion(y,Archimedean(x))) ** R2(x,y) [x << Amount(_), y << Archimedean(_)],
+    body=lambda x: apply2(multiply,x,(apply(measure,pi1(x))))
+)
+
+arealinterpol = Operator(
+    "areal interpolation",
+    type=lambda x: R2(Region, x) ** R1(Region) ** R2(Region, x) [x <= Proportion(_,Size)]#,
+    #body = lambda x, y: pi1(x)
+)
+
 
 # Language ###################################################################
 
@@ -125,8 +177,40 @@ in_ = Operator(type=Nom)
 out = Operator(type=Nom)
 true = Operator(type=Bool)
 ############Relational operators
+add = Operator(
+    "add value to unary relation",
+    type=lambda x: R1(x) ** x ** R1(x),
+)
+get = Operator(
+    "get some value from unary relation",
+    type=lambda x: R1(x) ** x
+)
+getregionqualities = Operator(
+    "get region-based qualities from object qualities",
+    type=lambda x: ObjectInfo(x) ** R2(Region, x),
+    body=lambda x: join(groupby(get, get_attrL(x)), get_attrR(x))
+)
+
+
 # Functional and relational transformations ###############################
 
+conj = Operator(
+    "conjunction",
+    type=Bool ** Bool ** Bool
+)
+notj = Operator(
+    "logical negation",
+    type=Bool ** Bool
+)
+disj = Operator(
+    "disjunction",
+    type=Bool ** Bool ** Bool,
+    body=lambda x: compose2(notj, conj, x)
+)
+empty = Operator(
+    "empty relation",
+    type=lambda rel: rel ** Bool
+)
 # Functional operators
 
 compose = Operator(
