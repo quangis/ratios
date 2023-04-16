@@ -109,6 +109,10 @@ multiply = Operator(
     "building archimedean magnitudes with ratios",
     type=lambda z, w: Proportion(z,w) ** w ** z
 )
+avg = Operator(
+    "avg a proportional relation",
+    type=lambda x,y: R2(x,y) ** y[y << Proportion(_,_)]
+)
 partOf = Operator(
     "amounts can be part of each other",
     type= lambda x: x ** x ** Bool[x <= Amount(_)]
@@ -121,11 +125,11 @@ union = Operator(
     "unify amounts (join)",
     type=lambda x: x ** x ** x [x <= Amount(_)]
 )
-merge = Operator(
-    "merge regions",
-    type=R1(Region) ** R1(Position),
-    body=lambda x: relunion(pi2(apply(amount2rel, x)))
-)
+# merge = Operator(
+#     "merge regions",
+#     type=R1(Region) ** R1(Position),
+#     body=lambda x: relunion(pi2(apply(amount2rel, x)))
+# )
 
 # consIntersect = Operator(
 #     "constructs a quantified relation of intersections of regions (excluding empty intersections)",
@@ -151,7 +155,16 @@ revert = Operator(
     type=lambda x: R2(x, Region) ** R2(Position, x),
     body=lambda x: pi23(prod3(apply1(compose(apply(id_),amount2rel)),x))
 )
-
+avgfield = Operator(
+    "average a field within a region",
+    type=lambda x: R2(Position,x) ** Region ** x [x << Proportion(_,_)],
+    body=lambda x,y: avg(subset(x,(amount2rel(y))))
+)
+field2lattice = Operator(
+    "average a field into a proportional lattice",
+    type=lambda x: R2(Position,x) ** R1(Region) ** R2(Region,x) [x << Proportion(_,_)],
+    body=lambda x,y: apply((avgfield(x)),y)
+)
 consproportion = Operator(
     'construct proportions from an Amount - Archimedean relation',
     type=lambda x, y: R2(x,y) ** R2(x,Proportion(y,Archimedean(x))) [x << Amount(_), y << Archimedean(_)],
@@ -162,17 +175,18 @@ consarchimed = Operator(
     type=lambda x, y: R2(x,Proportion(y,Archimedean(x))) ** R2(x,y) [x << Amount(_), y << Archimedean(_)],
     body=lambda x: apply2(multiply,x,(apply(measure,pi1(x))))
 )
-consarchimed2 = Operator(
-    "construct archimedean magnitudes from an Proportion - Amount relation",
-    type=lambda x, y: R2(Proportion(y,Archimedean(x)),x) ** R2(Proportion(y,Archimedean(x)),y) [x << Amount(_), y << Archimedean(_)],
-    body=lambda x: apply2(multiply,(apply(id,pi1(x))), (apply1(measure,x)))
+coverage2lattice = Operator(
+    "generate lattice from coverage",
+    type=lambda x, y: R2(x,y) ** R2(y,x),
+    body=lambda x: groupby(get,x)
 )
-
 arealinterpol = Operator(
-    "areal interpolation",
+    "areal interpolation of lattices",
     type=lambda x: R2(Region, x) ** R1(Region) ** R2(Region, x) [x <= Proportion(_,Size)]#,
     #body = lambda x, y: pi1(x)
 )
+
+
 
 
 # Language ###################################################################

@@ -5,26 +5,23 @@ def test(complex_string):
     return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10)))
 expressions =[
     """
-    1: R2(MassDensity, Amount(Position));
-    apply2
-     (
-        multiply,        
-        apply(id,pi1(1)),          
-    (apply1 measure 1) 
-    )
-    """
-    ,
-    """
     1: R2(MassDensity, Region);
     2: R1(Region);
-    prod3(groupbyR( consarchimed2,(prod3(prod(intersect,(apply id 2),1)))))
+    consarchimed(
+        arealinterpol(
+            coverage2lattice(1)
+            ,
+            2
+        )
+    )
     """,
     """
     1: R2(MassDensity, Region);
     2: R1(Region);    
-        subset
-        (revert 1) 
-        (merge 2)        
+        consarchimed(
+            field2lattice (revert 1) 2
+            ) 
+               
     """,
     """
     1: R2(Region, EventCount);
