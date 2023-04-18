@@ -1,5 +1,7 @@
 import transforge as tf
 from ratiotheory import ratiotheory
+#from lang2tools import lang2tools
+import json
 
 def test(complex_string):
     return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10))).primitive()
@@ -66,4 +68,6 @@ g = tf.TransformationGraph(ratiotheory)
 g.add_taxonomy()
 g.add_operators()
 
-#print(g.serialize())
+print(g.serialize())
+
+#print(json.dumps(lang2tools(ratiotheory), indent=4))
