@@ -2,7 +2,7 @@ import transforge as tf
 from ratiotheory import ratiotheory
 
 def test(complex_string):
-    return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10)))
+    return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10)))#.primitive()
 expressions =[
     """
     1: R2(MassDensity, Region);
@@ -65,4 +65,4 @@ g = tf.TransformationGraph(ratiotheory)
 g.add_taxonomy()
 g.add_operators()
 
-#print(g.serialize())
+print(g.serialize())
