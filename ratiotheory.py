@@ -103,7 +103,7 @@ measure = Operator(
 )
 ratio = Operator(
     "building ratios of archimedean magnitudes",
-    type=lambda x, y: x ** y ** Proportion(x,y)[x << Archimedean(_), y << Archimedean(_)]
+    type=lambda x, y: x ** y ** Proportion(x,y)[x <= Archimedean(_), y <= Archimedean(_)]
 )
 multiply = Operator(
     "building archimedean magnitudes with ratios",
@@ -111,7 +111,7 @@ multiply = Operator(
 )
 avg = Operator(
     "avg a proportional relation",
-    type=lambda x,y: R2(x,y) ** y[y << Proportion(_,_)]
+    type=lambda x,y: R2(x,y) ** y[y << (Proportion(_,_),Archimedean(_))]
 )
 partOf = Operator(
     "amounts can be part of each other",
@@ -125,17 +125,6 @@ union = Operator(
     "unify amounts (join)",
     type=lambda x: x ** x ** x [x <= Amount(_)]
 )
-# merge = Operator(
-#     "merge regions",
-#     type=R1(Region) ** R1(Position),
-#     body=lambda x: relunion(pi2(apply(amount2rel, x)))
-# )
-
-# consIntersect = Operator(
-#     "constructs a quantified relation of intersections of regions (excluding empty intersections)",
-#     type=lambda x,y: R2(x, Region) ** R2(y, Region) ** R3(x, Region, y),
-#     body=lambda x, y: select (compose(notj,empty))(prod3(prod(intersect, x, y)))
-# )
 
 amount2rel = Operator(
     'convert amounts into relations',
@@ -153,26 +142,26 @@ invert = Operator(
 revert = Operator(
     "revert a coverage into a field",
     type=lambda x: R2(x, Region) ** R2(Position, x),
-    body=lambda x: pi23(prod3(apply1(compose(apply(id_),amount2rel)),x))
+    body=lambda x: pi23(prod3(apply1(compose(apply(id_),amount2rel),x)))
 )
 avgfield = Operator(
     "average a field within a region",
-    type=lambda x: R2(Position,x) ** Region ** x [x << Proportion(_,_)],
+    type=lambda x: R2(Position,x) ** Region ** x [x <= Proportion(_,_)],
     body=lambda x,y: avg(subset(x,(amount2rel(y))))
 )
 field2lattice = Operator(
     "average a field into a proportional lattice",
-    type=lambda x: R2(Position,x) ** R1(Region) ** R2(Region,x) [x << Proportion(_,_)],
+    type=lambda x: R2(Position,x) ** R1(Region) ** R2(Region,x) [x <= Proportion(_,_)],
     body=lambda x,y: apply((avgfield(x)),y)
 )
 consproportion = Operator(
     'construct proportions from an Amount - Archimedean relation',
-    type=lambda x, y: R2(x,y) ** R2(x,Proportion(y,Archimedean(x))) [x << Amount(_), y << Archimedean(_)],
-    body=lambda x: apply2(ratio,(apply(measure,pi1(x))),x)
+    type=lambda x, y: R2(x,y) ** R2(x,Proportion(y,Archimedean(x))) [x <= Amount(_), y <= Archimedean(_)],
+    body=lambda x: apply2(ratio,x,(apply(measure,pi1(x))))
 )
 consarchimed = Operator(
     "construct archimedean magnitudes from an Amount - Proportion relation",
-    type=lambda x, y: R2(x,Proportion(y,Archimedean(x))) ** R2(x,y) [x << Amount(_), y << Archimedean(_)],
+    type=lambda x, y: R2(x,Proportion(y,Archimedean(x))) ** R2(x,y) [x <= Amount(_), y <= Archimedean(_)],
     body=lambda x: apply2(multiply,x,(apply(measure,pi1(x))))
 )
 coverage2lattice = Operator(
@@ -182,8 +171,7 @@ coverage2lattice = Operator(
 )
 arealinterpol = Operator(
     "areal interpolation of lattices",
-    type=lambda x: R2(Region, x) ** R1(Region) ** R2(Region, x) [x <= Proportion(_,Size)]#,
-    #body = lambda x, y: pi1(x)
+    type=lambda x: R2(Region, x) ** R1(Region) ** R2(Region, x) [x <= Proportion(_,Size)]
 )
 
 
@@ -201,14 +189,7 @@ in_ = Operator(type=Nom)
 out = Operator(type=Nom)
 true = Operator(type=Bool)
 ############Relational operators
-add = Operator(
-    "add value to unary relation",
-    type=lambda x: R1(x) ** x ** R1(x),
-)
-get = Operator(
-    "get some value from unary relation",
-    type=lambda x: R1(x) ** x
-)
+
 getregionqualities = Operator(
     "get region-based qualities from object qualities",
     type=lambda x: ObjectInfo(x) ** R2(Region, x),
@@ -218,6 +199,14 @@ getregionqualities = Operator(
 
 # Functional and relational transformations ###############################
 
+# leq = Operator(
+#     "less than or equal",
+#     type=Ord ** Ord ** Bool
+# )
+eq = Operator(
+    "equal",
+    type=lambda x: x ** x ** Bool
+)
 conj = Operator(
     "conjunction",
     type=Bool ** Bool ** Bool
@@ -376,8 +365,9 @@ select = Operator(
 subset = Operator(
     "Subset a relation to those tuples having an attribute value contained in "
     "a collection",
-    type=lambda x, rel: rel ** R1(x) ** rel [with_param(rel, x)],
-    body=lambda r, c: select(inrel, r, c)
+    type=lambda x, rel: rel ** R1(x) ** rel [with_param(rel, x)]#,
+    #body=lambda r, c: select(inrel, r, c)
+    #this generates errors
 )
 
 select2 = Operator(
@@ -437,8 +427,8 @@ apply2 = Operator(
     "Join with binary function. Generates a unary concept from two other "
     "unary concepts of the same type",
     type=lambda x1, x2, x3, y:
-        (x1 ** x2 ** x3) ** R2(y, x1) ** R2(y, x2) ** R2(y, x3),
-    body=lambda f, x, y: pi12(select2(eq, prod3(prod(f, x, y))))
+        (x1 ** x2 ** x3) ** R2(y, x1) ** R2(y, x2) ** R2(y, x3)#,
+    #body=lambda f, x, y: pi12(select2(eq, prod3(prod(f, x, y))))
 )
 
 groupbyL = Operator(

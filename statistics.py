@@ -2,7 +2,7 @@ import transforge as tf
 from ratiotheory import ratiotheory
 
 def test(complex_string):
-    return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10)))#.primitive()
+    return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10))).primitive()
 expressions =[
     """
     1: R2(MassDensity, Region);
@@ -17,21 +17,22 @@ expressions =[
     """,
     """
     1: R2(MassDensity, Region);
-    2: R1(Region);    
-        consarchimed(
-            field2lattice (revert 1) 2
-            ) 
-               
+    2: R1(Region);
+    consarchimed(
+        field2lattice (
+            revert 1
+        ) 2
+    )
     """,
     """
     1: R2(Region, EventCount);
-    2: R1(Region); 
-    consarchimed(  
+    2: R1(Region);
+    consarchimed(
         arealinterpol(
                 consproportion(1),
                 2
             )
-        )          
+        )
     """,
     """
     1: R2(Object, Region * EventCount) ;
@@ -65,4 +66,4 @@ g = tf.TransformationGraph(ratiotheory)
 g.add_taxonomy()
 g.add_operators()
 
-print(g.serialize())
+#print(g.serialize())
