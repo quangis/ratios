@@ -1,6 +1,6 @@
 import transforge as tf
 from ratiotheory import ratiotheory
-#from lang2tools import lang2tools
+from lang2tools import lang2tools
 import json
 
 def test(complex_string):
@@ -70,4 +70,4 @@ g.add_operators()
 
 print(g.serialize())
 
-#print(json.dumps(lang2tools(ratiotheory), indent=4))
+print(json.dumps(lang2tools(ratiotheory), indent=4))
