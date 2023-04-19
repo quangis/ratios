@@ -476,8 +476,7 @@ ObjectDensity,
 EventDensity,
 MassDensity,
 ObjectFrequency,
-EventFrequency,
-ObjectInfo
+EventFrequency
         # R1(Val),
         # R2(Reg, Qlt),
         # R2(Qlt, Reg),

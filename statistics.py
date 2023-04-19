@@ -70,4 +70,4 @@ g.add_operators()
 
 print(g.serialize())
 
-print(json.dumps(lang2tools(ratiotheory), indent=4))
+print(json.dumps(lang2tools(ratiotheory, avgfield=(ratiotheory.MassDensity,)), indent=4))
