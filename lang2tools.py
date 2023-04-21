@@ -46,18 +46,21 @@ def lang2tools(lang: Language) -> dict:
             any_variants = True
             tool = f"{lang.uri(op)}{i}"
             inputs, output = ti.io()
-            functions.append({
+            fn = {
                 'id': tool,
                 'label': shorten(tool),
                 'taxonomyOperations': [tool],
-                'inputs': [{lang.namespace.Top: [lang.uri(input)]}
+                'inputs': [{str(lang.namespace.Top): [str(lang.uri(input))]}
                     for input in inputs],
-                'outputs': [{lang.namespace.Top: [lang.uri(output)]}],
-            })
+                'outputs': [{str(lang.namespace.Top): [str(lang.uri(output))]}],
+            }
+            print(fn)
+            functions.append(fn)
         if not any_variants:
             print(f"Warning: {name} has no variants", file=stderr)
     return {'functions': functions}
 
 
 if __name__ == "__main__":
-    print(json.dumps(lang2tools(ratiotheory), indent=4))
+    with open("operators.json", "w") as f:
+        json.dump(lang2tools(ratiotheory), f, indent=4)
