@@ -1,10 +1,10 @@
 import transforge as tf
 from ratiotheory import ratiotheory
-from lang2tools import lang2tools
+#from lang2tools import lang2tools
 import json
 
 def test(complex_string):
-    return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10))).primitive()
+    return ratiotheory.parse(complex_string, *(tf.Source() for _ in range(10)))#.primitive()
 expressions =[
     """
     1: R2(MassDensity, Region);
@@ -70,4 +70,4 @@ g.add_operators()
 
 print(g.serialize())
 
-print(json.dumps(lang2tools(ratiotheory, avgfield=(ratiotheory.MassDensity,)), indent=4))
+#print(json.dumps(lang2tools(ratiotheory, avgfield=(ratiotheory.MassDensity,)), indent=4))
