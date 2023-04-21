@@ -3,6 +3,7 @@ tools that can be passed to APE. At the time of writing, this is relevant only
 for the <https://github.com/quangis/ratios> project."""
 
 import json
+from sys import stderr
 from transforge import Language
 from transforge.type import TypingError, TypeSchema, TypeInstance, Top, Bottom
 from transforge.namespace import shorten
@@ -40,7 +41,9 @@ def lang2tools(lang: Language) -> dict:
             tis = variants(op.type, canon)
         else:
             tis = (op.type.instance(),)
+        any_variants = False
         for i, ti in enumerate(tis):
+            any_variants = True
             tool = f"{lang.uri(op)}{i}"
             inputs, output = ti.io()
             functions.append({
@@ -51,7 +54,10 @@ def lang2tools(lang: Language) -> dict:
                     for input in inputs],
                 'outputs': [{lang.namespace.Top: [lang.uri(output)]}],
             })
+        if not any_variants:
+            print(f"Warning: {name} has no variants", file=stderr)
     return {'functions': functions}
 
 
-print(json.dumps(lang2tools(ratiotheory), indent=4))
+if __name__ == "__main__":
+    print(json.dumps(lang2tools(ratiotheory), indent=4))
