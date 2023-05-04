@@ -128,6 +128,7 @@ avg = Operator(
     "avg a proportional relation",
     type=lambda x,y: R2(x,y) ** y[y << (Proportion(_,_),Archimedean(_))]
 )
+#Isnt the avg outcome also another proportion Proportion(y,Count(x))?
 partOf = Operator(
     "amounts can be part of each other",
     type= lambda x: x ** x ** Bool[x <= Amount(_)]
@@ -143,7 +144,7 @@ union = Operator(
 
 amount2rel = Operator(
     'convert amounts into relations',
-    type=lambda x: Amount(x) ** R1(x)
+    type=lambda x: Amount(x) ** R1(x) [x << (Amount(Object),Amount(Event))]
 )
 rel2amount = Operator(
     'convert amounts into relations',
