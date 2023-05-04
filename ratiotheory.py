@@ -46,14 +46,14 @@ def with_param(on: Type, x: TypeInstance, at: int = None) -> Constraint:
 
 #------------------------------
 #Quantity types
-Quantity = TypeOperator()
+#Quantity = TypeOperator()
 Amount = TypeOperator(params=1) #supertype=Quantity
-Magnitude = TypeAlias(lambda x: x[x << (ArchimedeanMagnitude(_), ProportionalMagnitude(_,_))])
+#Magnitude = TypeAlias(lambda x: x[x << (ArchimedeanMagnitude(_), ProportionalMagnitude(_,_))])
 
-Archimedean = TypeOperator(params=1) #upertype=Magnitude
-ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount(_)])
+Archimedean = TypeOperator(params=1)#supertype=Magnitude)
+#ArchimedeanMagnitude = TypeAlias(lambda x: Archimedean(x) [x <= Amount(_)])
 Proportion = TypeOperator(params=2) #, supertype=Magnitude
-ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude(_), y <= Magnitude(_)])
+#ProportionalMagnitude = TypeAlias(lambda x, y: Proportion(x,y) [x <= Magnitude(_), y <= Magnitude(_)])
 
 #------------------------
 #Quantity Domains
@@ -66,8 +66,8 @@ Substance = TypeOperator()
 
 #-------------------
 #Types of amounts
-Region = TypeAlias(Amount(Position))
-Period = TypeAlias(Amount(Moment))
+Region = TypeAlias(Amount(Position)) #Spatial regions
+Period = TypeAlias(Amount(Moment)) #Temporal periods
 ContentAmount = TypeAlias(lambda x: x[x << (AmountofObject,AmountofEvent,AmountofSubstance)])
 AmountofObject = TypeAlias(Amount(Object))
 AmountofEvent = TypeAlias(Amount(Event))
@@ -81,12 +81,27 @@ ObjectCount = TypeAlias(Archimedean(AmountofObject))
 EventCount = TypeAlias(Archimedean(AmountofEvent))
 Mass = TypeAlias(Archimedean(AmountofSubstance))
 
-#Types of Proportions
+#Types of heterogeneous Proportions
 ObjectDensity = TypeAlias(Proportion(ObjectCount,Size))
 EventDensity = TypeAlias(Proportion(EventCount,Size))
 MassDensity = TypeAlias(Proportion(Mass,Size))
+ObjectSpecificSize = TypeAlias(Proportion(Size,ObjectCount))
+EventSpecificSize = TypeAlias(Proportion(Size,EventCount))
+MassSpecificSize = TypeAlias(Proportion(Size,Mass))
 ObjectFrequency = TypeAlias(Proportion(ObjectCount,Duration))
 EventFrequency = TypeAlias(Proportion(EventCount,Duration))
+Flux = TypeAlias(Proportion(Mass,Duration))
+ObjectSpecificDuration = TypeAlias(Proportion(Duration,ObjectCount))
+EventSpecificDuration = TypeAlias(Proportion(Duration,EventCount))
+SpecificTime = TypeAlias(Proportion(Duration,Mass))
+
+#Types of homogeneous proportions
+ProportionofTime = TypeAlias(Proportion(Duration,Duration))
+Scaling = TypeAlias(Proportion(Size,Size))
+RateofObjects = TypeAlias(Proportion(ObjectCount,ObjectCount))
+RateofEvents = TypeAlias(Proportion(EventCount,EventCount))
+RateofSubstance = TypeAlias(Proportion(Mass,Mass))
+
 
 ObjectInfo = TypeAlias(lambda x: R2(Object, Region * x))
 

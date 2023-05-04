@@ -1,0 +1,998 @@
+{
+    "functions": [
+        {
+            "id": "https://github.com/quangis/ratios#in0",
+            "label": "in0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#in0"
+            ],
+            "inputs": [],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Nom"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#out0",
+            "label": "out0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#out0"
+            ],
+            "inputs": [],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Nom"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#true0",
+            "label": "true0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#true0"
+            ],
+            "inputs": [],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#eq0",
+            "label": "eq0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#eq0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#eq1",
+            "label": "eq1",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#eq1"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#eq2",
+            "label": "eq2",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#eq2"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#eq3",
+            "label": "eq3",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#eq3"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#eq4",
+            "label": "eq4",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#eq4"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#eq5",
+            "label": "eq5",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#eq5"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#conj0",
+            "label": "conj0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#conj0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#notj0",
+            "label": "notj0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#notj0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#disj0",
+            "label": "disj0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#disj0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#empty0",
+            "label": "empty0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#empty0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#empty1",
+            "label": "empty1",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#empty1"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#empty2",
+            "label": "empty2",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#empty2"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#empty3",
+            "label": "empty3",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#empty3"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#empty4",
+            "label": "empty4",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#empty4"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#empty5",
+            "label": "empty5",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#empty5"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#id0",
+            "label": "id0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#id0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#id1",
+            "label": "id1",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#id1"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#id2",
+            "label": "id2",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#id2"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#id3",
+            "label": "id3",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#id3"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#id4",
+            "label": "id4",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#id4"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#id5",
+            "label": "id5",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#id5"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_union0",
+            "label": "set_union0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_union0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_union1",
+            "label": "set_union1",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_union1"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_union2",
+            "label": "set_union2",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_union2"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_union3",
+            "label": "set_union3",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_union3"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_union4",
+            "label": "set_union4",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_union4"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_union5",
+            "label": "set_union5",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_union5"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_diff0",
+            "label": "set_diff0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_diff0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_diff1",
+            "label": "set_diff1",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_diff1"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_diff2",
+            "label": "set_diff2",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_diff2"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_diff3",
+            "label": "set_diff3",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_diff3"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_diff4",
+            "label": "set_diff4",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_diff4"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_diff5",
+            "label": "set_diff5",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_diff5"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_inters0",
+            "label": "set_inters0",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_inters0"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Moment"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_inters1",
+            "label": "set_inters1",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_inters1"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Object"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_inters2",
+            "label": "set_inters2",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_inters2"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Position"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_inters3",
+            "label": "set_inters3",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_inters3"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Substance"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_inters4",
+            "label": "set_inters4",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_inters4"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Event"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https://github.com/quangis/ratios#set_inters5",
+            "label": "set_inters5",
+            "taxonomyOperations": [
+                "https://github.com/quangis/ratios#set_inters5"
+            ],
+            "inputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                },
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "https://github.com/quangis/ratios#Top": [
+                        "https://github.com/quangis/ratios#Bool"
+                    ]
+                }
+            ]
+        }
+    ]
+}
